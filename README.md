@@ -12,6 +12,8 @@
 - pygetwindow
 - dotenv
 
-> python -m pip install
+#### Create .venv folder
+
+> python -m pip install or pipenv install
 
 > python script.py

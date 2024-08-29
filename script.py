@@ -1,9 +1,10 @@
-import pyautogui as p
+import os
+import sys
 import time
+import psutil
 import subprocess
 import pygetwindow
-import os
-import psutil
+import pyautogui as p
 from dotenv import load_dotenv
 
 print('Service running...')
@@ -11,7 +12,7 @@ print('Service running...')
 load_dotenv()
 
 VPN_PATH = os.getenv('VPN_PATH')
-SERVER = os.getenv('SERVER')
+SERVER = os.getenv('SERVER')    
 USER_NAME = os.getenv('USER_NAME')
 PASSWORD = os.getenv('PASSWORD')
 DOMAIN = os.getenv('DOMAIN')
@@ -31,13 +32,20 @@ time.sleep(3)
 p.moveTo(1000, 400)
 p.click()
 
+print('Move the mouse to exit.')
+
 list = [ SERVER, USER_NAME, PASSWORD, DOMAIN ]
 
 for data in list:
+    x, y = p.position()
+    if x != 1000 or y != 400:
+        print('Service finished by user.')
+        sys.exit()
+
     p.keyDown('tab')
     p.hotkey('ctrl', 'a')
     p.write(data)
     time.sleep(2)
 
 p.keyDown('enter')
-print('Connection...')
+print('Connecting to server')
