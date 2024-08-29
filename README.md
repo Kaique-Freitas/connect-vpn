@@ -1,6 +1,6 @@
 # VPN Connection
 
-## Service created to auto connect in VPN app called NetExtender
+## Service created to auto connect in VPN app called NetExtender, software from @SonicWall
 
 ### To start service is necessary to create .env file
 
