@@ -15,5 +15,3 @@
 > python -m pip install
 
 > python script.py
-
-@SonicWall
