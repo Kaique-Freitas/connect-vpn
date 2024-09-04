@@ -19,6 +19,8 @@ USER_NAME = os.getenv('USER_NAME')
 PASSWORD = os.getenv('PASSWORD')
 DOMAIN = os.getenv('DOMAIN')
 
+print('Verifying network requirements...')
+
 for name, interface in ifcfg.interfaces().items(): 
     if('SonicWall NetExtender' in name and interface['inet'] == INET_ADDRESS):
         print('VPN is already connected.')
@@ -28,13 +30,13 @@ for proc in psutil.process_iter(['pid', 'name']):
     if proc.info['name'] == 'NEGui.exe':
         proc.kill()
 
-time.sleep(3)
+time.sleep(2)
 subprocess.Popen(VPN_PATH)
-time.sleep(3)
+time.sleep(1)
 
 window = pygetwindow.getWindowsWithTitle('NetExtender')[0]
 window.activate()
-time.sleep(3)
+time.sleep(1)
 
 p.moveTo(1000, 400)
 p.click()
@@ -48,4 +50,9 @@ for data in list:
     time.sleep(2)
 
 p.keyDown('enter')
-print('Connecting to server')
+print('Connecting to server...')
+time.sleep(6)
+
+window.close()
+
+print('Service finished.')
