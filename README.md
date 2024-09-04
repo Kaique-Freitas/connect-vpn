@@ -1,19 +1,20 @@
-# VPN Connection
 
-## Service created to auto connect in VPN app called NetExtender, software from @SonicWall
+# connect-vpn
 
-### To start service is necessary to create .env file
+Service created to auto connect in VPN app called NetExtender, software from @SonicWall
 
 
-### Necessary packages to run service
+## Instalação
 
-- python 3.2 or higher
-- pyautogui
-- pygetwindow
-- dotenv
+To start service is necessary to create `.env` file.
 
-#### Create .venv folder
+Install dependences
+```bash
+  python -m pip install
+```
 
-> python -m pip install or pipenv install
-
-> python script.py
+Start scrypt
+```bash
+  python script.py
+```
+If the reconnect button appears, press it and stop moving the mouse.
