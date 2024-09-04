@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import ifcfg
 import psutil
 import subprocess
 import pygetwindow
@@ -11,11 +12,17 @@ print('Service running...')
 
 load_dotenv()
 
+INET_ADDRESS = os.getenv('INET_ADDRESS')
 VPN_PATH = os.getenv('VPN_PATH')
 SERVER = os.getenv('SERVER')    
 USER_NAME = os.getenv('USER_NAME')
 PASSWORD = os.getenv('PASSWORD')
 DOMAIN = os.getenv('DOMAIN')
+
+for name, interface in ifcfg.interfaces().items(): 
+    if('SonicWall NetExtender' in name and interface['inet'] == INET_ADDRESS):
+        print('VPN is already connected.')
+        sys.exit()
 
 for proc in psutil.process_iter(['pid', 'name']):
     if proc.info['name'] == 'NEGui.exe':
