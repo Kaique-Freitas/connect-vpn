@@ -3,6 +3,7 @@
 
 Service created to auto connect in VPN app called NetExtender, software from @SonicWall
 
+**Phyton version :** ^3.2
 
 ## Instalação
 
