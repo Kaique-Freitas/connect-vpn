@@ -39,16 +39,9 @@ time.sleep(3)
 p.moveTo(1000, 400)
 p.click()
 
-print('Move the mouse to exit.')
-
 list = [ SERVER, USER_NAME, PASSWORD, DOMAIN ]
 
 for data in list:
-    x, y = p.position()
-    if x != 1000 or y != 400:
-        print('Service finished by user.')
-        sys.exit()
-
     p.keyDown('tab')
     p.hotkey('ctrl', 'a')
     p.write(data)
